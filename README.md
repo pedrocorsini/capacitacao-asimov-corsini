@@ -17,6 +17,8 @@ Sou **estudante de Engenharia de Computação na Universidade Federal de Itajub�
 
 ## Tecnologias
 
+<div align="center">
+
 <table>
   <tr>
     <td><strong>Linguagens</strong></td>
@@ -45,7 +47,9 @@ Sou **estudante de Engenharia de Computação na Universidade Federal de Itajub�
   </tr>
 </table>
 
-## Cronograma de capacitação
+</div>
+
+## Cronograma da Capacitação
 
 <div align="center">
 
@@ -65,6 +69,16 @@ Sou **estudante de Engenharia de Computação na Universidade Federal de Itajub�
 | Semanas 11–12 | 02/02 a 16/02 | Projeto final | ⬜ Não iniciado |
 
 </div>
+
+## Estrutura do projeto (WIP)
+
+```text
+capacitacao-asimov-corsini/
+├── semana-01-git/
+│   └── README.md       # Informações da semana de git
+├── .gitignore
+└── README.md       
+```
 
 ## Estatísticas do GitHub
 
