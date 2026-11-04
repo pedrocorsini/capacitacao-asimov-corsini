@@ -1,4 +1,4 @@
-## Semana 01 Git & GitHub
+# Semana 01 Git & GitHub
 
 Capacitação da semana 01 sobre Git e GitHub. 
   
@@ -8,6 +8,24 @@ Capacitação da semana 01 sobre Git e GitHub.
  - Commits pequenos e regulares usando o Conventional Commits -> [Ver todos os commits](https://github.com/pedrocorsini/capacitacao-asimov-corsini/commits/semana-01-git/);
  - Tabela do Conventional Commits adicionada no README semanal;
  - Arquivo .gitignore adicionado;
+ - Conlfito de merge solucionado por meio de [Issues](https://github.com/pedrocorsini/capacitacao-asimov-corsini/issues) e [PRs](https://github.com/pedrocorsini/capacitacao-asimov-corsini/pulls?q=is%3Apr+state%3Aclosed);
+  
+## Objetivos
+- Praticar Git e GitHub;
+-  Versionamento, Branches, Pull Requests ;
+-  Markdown. 🤑
+
+## Conflito de merge
+
+O conflito ocorreu porque duas branches alteraram a mesma linha do objetivo
+da semana a partir de uma versão comum.
+
+Após integrar o primeiro Pull Request à main, executei
+`git merge origin/main` na segunda branch. O Git identificou versões
+diferentes para a mesma linha e solicitou uma resolução manual.
+
+Resolvi o conflito combinando as duas propostas e removendo os marcadores
+de conflito. Depois, revisei o arquivo e concluí o merge com um commit.
 
 ## Conventional Commits
 
