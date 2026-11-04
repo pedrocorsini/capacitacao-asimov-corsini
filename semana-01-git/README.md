@@ -10,7 +10,21 @@ Capacitação da semana 01 sobre Git e GitHub.
  - Arquivo .gitignore adicionado;
   
 ## Objetivos
- - Objetivo: praticar Git e GitHub com branches e Pull Requests.
+- Praticar Git e GitHub;
+-  Versionamento, Branches, Pull Requests ;
+-  Markdown. 🤑
+
+## Conflito de merge
+
+O conflito ocorreu porque duas branches alteraram a mesma linha do objetivo
+da semana a partir de uma versão comum.
+
+Após integrar o primeiro Pull Request à main, executei
+`git merge origin/main` na segunda branch. O Git identificou versões
+diferentes para a mesma linha e solicitou uma resolução manual.
+
+Resolvi o conflito combinando as duas propostas e removendo os marcadores
+de conflito. Depois, revisei o arquivo e concluí o merge com um commit.
 
 ## Conventional Commits
 
