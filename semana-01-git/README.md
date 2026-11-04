@@ -1,3 +1,14 @@
+## Semana 01 Git & GitHub
+
+Capacitação da semana 01 sobre Git e GitHub. 
+  
+ - README principal na main adicionado;
+ - Índice da capacitação será atualizado no README principal a cada entrega;
+ - Branch `semana-01-git` criada;
+ - Commits pequenos e regulares usando o Conventional Commits -> [Ver todos os commits](https://github.com/pedrocorsini/capacitacao-asimov-corsini/commits/semana-01-git/);
+ - Tabela do Conventional Commits adicionada no README semanal;
+ - Arquivo .gitignore adicionado;
+
 ## Conventional Commits
 
 | Tipo | Quando usar | Exemplo |
