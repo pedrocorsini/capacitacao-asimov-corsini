@@ -10,7 +10,7 @@ Capacitação da semana 01 sobre Git e GitHub.
  - Arquivo .gitignore adicionado;
   
 ## Objetivos
- - Aprender Git 😵‍💫
+ - Aprender versionamento e markdown;
 
 ## Conventional Commits
 
