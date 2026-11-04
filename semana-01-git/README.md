@@ -1,4 +1,4 @@
-## Semana 01 Git & GitHub
+# Semana 01 Git & GitHub
 
 Capacitação da semana 01 sobre Git e GitHub. 
   
@@ -8,6 +8,9 @@ Capacitação da semana 01 sobre Git e GitHub.
  - Commits pequenos e regulares usando o Conventional Commits -> [Ver todos os commits](https://github.com/pedrocorsini/capacitacao-asimov-corsini/commits/semana-01-git/);
  - Tabela do Conventional Commits adicionada no README semanal;
  - Arquivo .gitignore adicionado;
+  
+## Objetivos
+ - Objetivo: praticar Git e GitHub com branches e Pull Requests.
 
 ## Conventional Commits
 
