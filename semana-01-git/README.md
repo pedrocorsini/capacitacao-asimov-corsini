@@ -10,7 +10,7 @@ Capacitação da semana 01 sobre Git e GitHub.
  - Arquivo .gitignore adicionado;
   
 ## Objetivos
- - Aprender Git 😵‍💫
+ - Objetivo: praticar Git e GitHub com branches e Pull Requests.
 
 ## Conventional Commits
 
