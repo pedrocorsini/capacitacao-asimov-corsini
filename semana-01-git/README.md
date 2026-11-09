@@ -8,6 +8,7 @@ Capacitação da semana 01 sobre Git e GitHub.
  - Commits pequenos e regulares usando o Conventional Commits -> [Ver todos os commits](https://github.com/pedrocorsini/capacitacao-asimov-corsini/commits/semana-01-git/);
  - Tabela do Conventional Commits adicionada no README semanal;
  - Arquivo .gitignore adicionado;
+ - Conlfito de merge solucionado por meio de [Issues](https://github.com/pedrocorsini/capacitacao-asimov-corsini/issues) e [PRs](https://github.com/pedrocorsini/capacitacao-asimov-corsini/pulls?q=is%3Apr+state%3Aclosed);
   
 ## Objetivos
 - Praticar Git e GitHub;
