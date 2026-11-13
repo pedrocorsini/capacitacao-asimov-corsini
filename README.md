@@ -55,8 +55,8 @@ Sou **estudante de Engenharia de Computação na Universidade Federal de Itajub�
 
 | Semanas | Período | Conteúdo | Progresso |
 | --- | --- | --- | --- |
-| Semana 1 | 03/11 a 10/11 | Git e GitHub | 🔄 Em andamento |
-| Semana 2 | 10/11 a 17/11 | HTML e CSS | ⬜ Não iniciado |
+| Semana 1 | 03/11 a 10/11 | [Git e GitHub](semana-01-git/) | ✅ Concluído |
+| Semana 2 | 10/11 a 17/11 | [HTML e CSS](semana-02-html-css/) | 🔄 Em andamento |
 | Semana 3 | 17/11 a 01/12 | TypeScript | ⬜ Não iniciado |
 | Semana 4 | 01/12 a 08/12 | Tailwind CSS | ⬜ Não iniciado |
 | Semana 5 | 08/12 a 15/12 | Angular — Parte 1 | ⬜ Não iniciado |

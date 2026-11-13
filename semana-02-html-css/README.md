@@ -2,5 +2,5 @@
 
 Capacitação da semana 02 sobre HTML e CSS.
 
-- Exercícios básicos sobre HTML e CSS em [udemy/](udemy/basico/);
+- Exercícios básicos sobre HTML e CSS em [udemy/](udemy/);
 - [EM PROGRESSO];
