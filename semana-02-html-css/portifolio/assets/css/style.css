@@ -66,14 +66,36 @@ nav a:focus-visible {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 
 #home h1 {
     font-size: clamp(2rem, 5vw, 4rem);
 }
 
-.container {
-    width: min(100% - 2rem, 1200px);
+
+#home.container {
+    box-sizing: border-box;
+    width: calc(100% - clamp(1rem, 4vw, 4rem) * 2);
+    max-width: 1200px;
     margin-inline: auto;
+}
+
+body {
+    margin: 0;
+}
+
+#home {
+    margin-inline: clamp(1rem, 4vw, 4rem);
+}
+
+@media (max-width: 600px) {
+    #home {
+        grid-template-columns: 1fr;
+    }
+
+    #home img {
+        width: min(100%, 200px);
+        justify-self: center;
+    }
 }
