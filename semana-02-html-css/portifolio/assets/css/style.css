@@ -12,7 +12,7 @@
     --font-body: Georgia, "Times New Roman", serif;
 
     --page-gutter: clamp(1rem, 3vw, 2rem);
-    --section-space: clamp(5rem, 10vw, 9rem);
+    --section-space: clamp(1.5rem, 6vw, 5rem);
 }
 
 html {
@@ -21,10 +21,10 @@ html {
 }
 
 body {
-
     background-color: var(--color-bg);
     color: var(--color-ink);
     font-family: 'Inter', sans-serif;
+    margin: 0;
 }
 
 nav {
@@ -46,10 +46,10 @@ nav ul {
 nav a {
     text-decoration: none;
     padding: 0.5rem 0.25rem;
-    color: var(--color-ink);   
+    color: var(--color-ink);
 }
 
-nav ul a{
+nav ul a {
     transition: color 0.3s ease;
 }
 
@@ -91,7 +91,6 @@ main {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
-    /* border-radius: 50%; */
 }
 
 #home h1,
@@ -150,7 +149,6 @@ main {
     transform: translateY(0);
 }
 
-
 #home .github {
     font-size: clamp(1.3rem, 2vw, 1.1rem);
     font-family: 'Times New Roman', Times, serif;
@@ -166,9 +164,48 @@ main {
     text-underline-offset: 5px;
 }
 
-body {
-    margin: 0;
+#sobre {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    align-items: start;
+    column-gap: clamp(1.5rem, 4vw, 4rem);
+    row-gap: 0;
+    padding: clamp(1.5rem, 5vw, 4rem);
 }
+
+#sobre h2{
+    font-size: clamp(1rem, 4vw, 3rem);
+    margin-top: 0;
+}
+
+#sobre .lead{
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    margin-top: 0;
+}
+
+#sobre p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.25rem;
+    text-align: justify;
+}
+
+#skills{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    align-items: center;
+    column-gap: clamp(1.5rem, 4vw, 4rem);
+    row-gap: 0;
+
+    background-color: var(--color-ink);
+    color: var(--color-bg); 
+
+    padding: clamp(1.5rem, 5vw, 4rem);
+}
+
+#skills h2{
+    font-size: clamp(1rem, 4vw, 3rem);
+}
+
 
 @media (max-width: 600px) {
     #home {
