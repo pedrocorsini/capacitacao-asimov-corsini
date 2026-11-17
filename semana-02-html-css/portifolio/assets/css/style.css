@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    color-scheme: dark;
+    --color-bg: #161c1a;
+    --color-surface: #232e29;
+    --color-ink: #e3e2da;
+    --color-accent: #9fc7b8;
+    --color-muted: #a6b1aa;
+    --color-border: #3a4841;
+    --font-heading: Arial, "Helvetica Neue", sans-serif;
+    --font-body: Georgia, "Times New Roman", serif;
+
+    --page-gutter: clamp(1rem, 3vw, 2rem);
+    --section-space: clamp(5rem, 10vw, 9rem);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+body {
+
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: 'Inter', sans-serif;
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 20px;
+    justify-content: flex-end;
+    font-size: 18px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-ink);
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+#home {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
+
+    background-color: var(--color-ink);
+    color: var(--color-bg);
+
+    padding: clamp(1.5rem, 5vw, 4rem);
+    margin-top: 2rem;
+}
+
+#home img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#home h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.container {
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+}
