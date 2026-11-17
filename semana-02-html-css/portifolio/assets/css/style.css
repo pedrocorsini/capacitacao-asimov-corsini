@@ -51,15 +51,16 @@ nav a:focus-visible {
 
 #home {
     display: grid;
-    grid-template-columns: 200px minmax(0, 1fr);
+    grid-template-columns: 200px auto 1fr;
     align-items: center;
-    gap: clamp(1.5rem, 4vw, 4rem);
+    column-gap: clamp(1.5rem, 4vw, 4rem);
+    row-gap: 0;
 
     background-color: var(--color-ink);
     color: var(--color-bg);
 
     padding: clamp(1.5rem, 5vw, 4rem);
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 #home img {
@@ -69,24 +70,80 @@ nav a:focus-visible {
     /* border-radius: 50%; */
 }
 
-#home h1 {
-    font-size: clamp(2rem, 5vw, 4rem);
+#home h1,
+#home .foot,
+#home .course {
+    margin: 0;
 }
 
+#home h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    max-width: 6ch;
+    line-height: 1;
+}
+
+#home .foot{
+    font-size: clamp(1rem, 2vw, 1.1rem); 
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 3rem;
+}
+
+#home .description{
+    font-size: clamp(2rem, 64vw, 2.2rem); 
+    font-family: 'Times New Roman', Times, serif;
+    justify-self: end;
+    margin-right: 3rem;
+}
 
 #home.container {
     box-sizing: border-box;
     width: calc(100% - clamp(1rem, 4vw, 4rem) * 2);
-    max-width: 1200px;
+    max-width: 1400px;
     margin-inline: auto;
+}
+
+#home .button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform .2s ease;
+    grid-column: 3;
+}
+
+#home .button:hover {
+  transform: translateY(-3px);
+}
+
+#home .button:active {
+  transform: translateY(0);
+}
+
+
+#home .github{
+    font-size: clamp(1.3rem, 2vw, 1.1rem); 
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 3rem;
+    grid-column: 3;
+    justify-self: end;
+    text-decoration: none;
+    color: var(--color-bg);
+}
+
+#home .github:hover{
+    text-decoration: underline;
+    text-underline-offset: 5px;
 }
 
 body {
     margin: 0;
-}
-
-#home {
-    margin-inline: clamp(1rem, 4vw, 4rem);
 }
 
 @media (max-width: 600px) {
