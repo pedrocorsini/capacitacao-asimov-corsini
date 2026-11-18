@@ -431,3 +431,44 @@ a.project-media:focus-visible {
         margin-top: 1rem;
     }
 }
+
+#contatos {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    align-items: start;
+    gap: 1rem clamp(1.5rem, 4vw, 4rem);
+    padding: clamp(1.5rem, 5vw, 4rem);
+    background-color: var(--color-ink);
+    color: var(--color-bg);
+}
+
+#contatos h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.contact-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contact-link {
+    display: inline-block;
+    padding-block: 0.5rem;
+    color: inherit;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+    text-underline-offset: 5px;
+}
+
+.contact-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+    #contatos {
+        grid-template-columns: 1fr;
+    }
+}
