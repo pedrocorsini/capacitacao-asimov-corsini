@@ -70,14 +70,28 @@ Sou **estudante de Engenharia de Computação na Universidade Federal de Itajub�
 
 </div>
 
-## Estrutura do projeto (WIP)
+## Estrutura do projeto
 
 ```text
 capacitacao-asimov-corsini/
 ├── semana-01-git/
-│   └── README.md       # Informações da semana de git
+│   └── README.md               # Entregas e objetivos de Git e GitHub
+├── semana-02-html-css/
+│   ├── portfolio/
+│   │   ├── assets/
+│   │   │   ├── css/
+│   │   │   │   └── style.css   # Estilos, responsividade e animações
+│   │   │   ├── images/         # Foto pessoal e imagens dos projetos
+│   │   │   └── js/
+│   │   │       └── theme.js    # Alternância e persistência do tema
+│   │   └── index.html          # Página do portfólio
+│   ├── udemy/
+│   │   ├── basico/             # Exemplos e materiais de HTML e CSS
+│   │   └── exercicios/
+│   │       └── Exercício 1/    # Exercício prático e gabarito
+│   └── README.md               # Entregas e objetivos de HTML e CSS
 ├── .gitignore
-└── README.md       
+└── README.md                   # Apresentação e cronograma da capacitação
 ```
 
 ## Estatísticas do GitHub
