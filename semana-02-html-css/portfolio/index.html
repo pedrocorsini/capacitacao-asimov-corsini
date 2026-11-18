@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#161c1a">
+  <title>Pedro Corsini | Portfólio</title>
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="container">
+      <a class="home-button" href="#home">@corsini</a>
+      <ul>
+        <li>
+          <button class="theme-toggle" type="button" aria-label="Modo claro" aria-pressed="false" hidden>
+            <svg class="theme-moon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/>
+            </svg>
+            <svg class="theme-sun" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/>
+            </svg>
+          </button>
+        </li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contatos">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="container">
+      <img src="assets/images/corsini_square.jpg" alt="Pedro Corsini">
+      <h1>Pedro Corsini</h1>
+      <div>
+        <p class="description">Engenharia de Computação. Trainee Asimov Jr.</p>
+        <a class="button" href="#projetos">Explorar Projetos <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="foot">UNIFEI - Itajubá, MG</p>
+      <a class="github" href="https://github.com/pedrocorsini" target="_blank"
+        rel="noopener noreferrer">github.com/pedrocorsini</a>
+    </section>
+
+    <section id="sobre" class="container">
+      <h2>Sobre Mim</h2>
+      <div>
+        <p class="lead">Estudante de Engenharia de Computação | Desenvolvedor Back-end | Drone Systems & Hardware</p>
+        <p>Graduando em Engenharia de Computação pela Universidade Federal de Itajubá (UNIFEI), com foco em
+          desenvolvimento de software, sistemas embarcados e resolução de problemas.</p>
+        <p>Experiência em programação com Java, C, C++ e Python, com atenção à organização, legibilidade e manutenção
+          do código. No desenvolvimento back-end, trabalho com Java e Spring Boot, construindo APIs REST, implementando
+          regras de negócio e integrando bancos de dados PostgreSQL e APIs externas.</p>
+        <p>Sou ex-membro da Black Bee Drones, primeira equipe de drones autônomos da América Latina, atuando na área de
+          hardware e sistemas embarcados. Minhas atividades incluem montagem, manutenção e integração de sistemas e
+          componentes, além da pilotagem de drones.</p>
+        <p>Participação em competições como SAE EletroQuad, de âmbito nacional, e IMAV, internacional, trabalhando em
+          soluções com foco em eficiência e estabilidade.</p>
+        <p>Atualmente sou trainee na Asimov Jr. e estou em busca de oportunidades de estágio para continuar aprendendo e
+          construindo coisas úteis.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="container">
+      <h2>Skills</h2>
+      <dl class="skills-list">
+        <dt>Base</dt>
+        <dd>
+          <p class="lead">C · C++ · Python</p>
+          <p>Meu primeiro contato com programação foi com C na faculdade, aprendi uma sólida lógica com C, partindo pra
+            orientação a obejtos em C++. Também aprofundei meus conhecimentos em IA com Python.</p>
+        </dd>
+
+        <dt>Back-end</dt>
+        <dd>
+          <p class="lead">Java · Spring Boot · APIs Rest</p>
+          <p>Aprofundei meus conhecimentos em Programação Orientada a Objetos com Java e Spring Boot, desenvolvendo APIs
+            REST e estruturando projetos com Domain-Driven Design.</p>
+        </dd>
+
+        <dt>Ferramentas</dt>
+        <dd>
+          <p class="lead">PostgreSQL · Git · Docker · OpenCV · Linux</p>
+          <p>PostgreSQL, Git, Docker, OpenCV e Linux fazem parte das ferramentas que uso no dia a dia em projetos de
+            software e visão computacional.</p>
+        </dd>
+
+        <dt>Idiomas</dt>
+        <dd>
+          <p class="lead">Português nativo · Inglês avançado</p>
+          <p>Inglês com certificação Cambridge B2.</p>
+        </dd>
+      </dl>
+    </section>
+
+    <section id="projetos" class="container">
+      <h2>Projetos</h2>
+      <div class="projects-list">
+
+        <article class="project">
+          <h3>CorsaBox</h3>
+          <p class="lead">Java · Spring Boot · PostgreSQL</p>
+          <p>CorsaBox é um catálogo e diário pessoal de filmes, séries e animes. Explore títulos, acompanhe o que você
+            já assistiu e organize o que quer assistir. Publique avaliações, descubra outros espectadores e personalize
+            seu perfil público. O projeto tem um frontend React de página única (SPA) e uma API REST em Java com Spring
+            Boot.</p>
+          <a class="project-link" href="https://github.com/pedrocorsini/corsabox" target="_blank"
+            rel="noopener noreferrer">Ver no GitHub <span aria-hidden="true">↗</span></a>
+          <a class="project-media" href="https://www.corsabox.app/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/images/corsabox.png" alt="Tela inicial da CorsaBox (abre o site)">
+          </a>
+        </article>
+
+        <article class="project">
+          <h3>Project Hail Mary++</h3>
+          <p class="lead">Python</p>
+          <p>Analisador léxico e sintático da linguagem PHM++. A Project Hail Mary++ é uma linguagem didática inspirada
+            em astronomia, com sintaxe baseada em C/C++.</p>
+          <a class="project-link" href="https://github.com/pedrocorsini/project-hail-mary-pp" target="_blank"
+            rel="noopener noreferrer">Ver no GitHub <span aria-hidden="true">↗</span></a>
+          <a class="project-media" href="https://github.com/pedrocorsini/project-hail-mary-pp" target="_blank"
+            rel="noopener noreferrer">
+            <img src="assets/images/phm.png" alt="Project Hail May++">
+          </a>
+        </article>
+
+        <article class="project">
+          <h3>4-bit MicroCore for DE10-Lite</h3>
+          <p class="lead">Verilog · FPGA</p>
+          <p>Implementação de um microcontrolador simples de 4 bits em Verilog HDL, projetado para a FPGA DE10-Lite com
+            fins educacionais, para demonstrar a arquitetura e o funcionamento básicos de um microcontrolador.</p>
+          <a class="project-link" href="https://github.com/pedrocorsini/4bit-microcore" target="_blank"
+            rel="noopener noreferrer">Ver no GitHub <span aria-hidden="true">↗</span></a>
+          <a class="project-media" href="https://github.com/pedrocorsini/4bit-microcore" target="_blank"
+            rel="noopener noreferrer">
+            <img src="assets/images/4bit-microcore.png" alt="Arquitetura do 4bit-microcore">
+          </a>
+        </article>
+
+      </div>
+    </section>
+    <section id="contatos" class="container" aria-labelledby="contatos-titulo">
+      <h2 id="contatos-titulo">Contato</h2>
+
+      <ul class="contact-list">
+        <li><a class="contact-link" href="https://www.linkedin.com/in/pedrocorsini/">LinkedIn <span aria-hidden="true">↗</span></a></li>
+        <li><a class="contact-link" href="https://www.instagram.com/corsiniz_/">Instagram <span aria-hidden="true">↗</span></a></li>
+        <li><a class="contact-link" href="mailto:pedrocorsini013@gmail.com">pedrocorsini013@gmail.com</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="container">
+    <p>© 2026 Pedro Corsini. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+
+</html>
