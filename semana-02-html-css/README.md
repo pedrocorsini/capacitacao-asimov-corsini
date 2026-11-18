@@ -38,6 +38,15 @@ O portfólio está publicado no GitHub Pages: [Acessar o portfólio](https://ped
 Para visualizar localmente, abra [portfolio/index.html](portfolio/index.html) no
 navegador ou utilize a extensão Live Server do VS Code.
 
+## Lighthouse
+
+Pontuações de desempenho do portfólio no Lighthouse:
+
+| Dispositivo | Pontuação |
+| --- | --- |
+| Desktop | 95/100 |
+| Mobile | 90/100 |
+
 ## Tecnologias utilizadas
 
 | Tecnologia | Aplicação |
