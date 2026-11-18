@@ -6,6 +6,7 @@ Capacitação da semana 02 sobre HTML e CSS.
 - Branch `semana-02-html-css` criada;
 - Commits usando o Conventional Commits -> [Ver todos os commits](https://github.com/pedrocorsini/capacitacao-asimov-corsini/commits/semana-02-html-css/);
 - Portfólio pessoal desenvolvido em [portfolio/](portfolio/);
+- Deploy do portfólio no [GitHub Pages](https://pedrocorsini.github.io/capacitacao-asimov-corsini/semana-02-html-css/portfolio/);
 - Layout responsivo com Flexbox, Grid e media queries;
 - Animações suaves em CSS na entrada dos elementos durante a rolagem;
 - Alternância entre os modos claro e escuro, com a preferência salva no navegador;
@@ -32,8 +33,10 @@ respeitam a preferência de movimento reduzido. O botão de tema exibe uma lua n
 escuro e um sol no modo claro. Um pequeno script em JavaScript alterna as cores e
 salva a escolha no `localStorage`, mantendo o modo escuro como padrão.
 
-Para visualizar, abra [portfolio/index.html](portfolio/index.html) no navegador ou
-utilize a extensão Live Server do VS Code.
+O portfólio está publicado no GitHub Pages: [Acessar o portfólio](https://pedrocorsini.github.io/capacitacao-asimov-corsini/semana-02-html-css/portfolio/).
+
+Para visualizar localmente, abra [portfolio/index.html](portfolio/index.html) no
+navegador ou utilize a extensão Live Server do VS Code.
 
 ## Tecnologias utilizadas
 
