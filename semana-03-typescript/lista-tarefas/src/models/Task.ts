@@ -10,14 +10,19 @@ export class Task {
     private _status: Status;
     private _priority: Priority;
     private readonly _createdOn: Date;
+    private _editedOn?: Date;
 
     constructor(title: string, description?: string, status: Status = Status.PENDING, priority: Priority = Priority.LOW) {
         this._id = randomUUID();
         this._title = title;
-        if(description !== undefined) this._description = description;
-        this._status = status;  
+        if (description !== undefined) this._description = description;
+        this._status = status;
         this._priority = priority;
         this._createdOn = new Date();
+    }
+
+    markAsEdited(): void {
+        this._editedOn = new Date();
     }
 
     get id(): string {
@@ -29,36 +34,40 @@ export class Task {
     }
 
     set title(title: string) {
-        if(!validateTitle(title)) throw new Error("Título Inválido");
+        if (!validateTitle(title)) throw new Error("Título Inválido");
         this._title = title.trim();
     }
 
-    get status(): Status{
+    get status(): Status {
         return this._status;
     }
 
-    set status(status: Status){
+    set status(status: Status) {
         this._status = status;
     }
 
-    get priority(): Priority{
+    get priority(): Priority {
         return this._priority;
     }
 
-    set priority(priority: Priority){
+    set priority(priority: Priority) {
         this._priority = priority;
     }
 
-    get description(): string | undefined{
+    get description(): string | undefined {
         return this._description;
     }
 
     set description(description: string | undefined) {
-        if(description === undefined) delete this._description;
+        if (description === undefined) delete this._description;
         else this._description = description;
     }
 
-    get createdOn(): Date{
+    get createdOn(): Date {
         return this._createdOn;
+    }
+
+    get editedOn(): Date | undefined {
+        return this._editedOn;
     }
 } 

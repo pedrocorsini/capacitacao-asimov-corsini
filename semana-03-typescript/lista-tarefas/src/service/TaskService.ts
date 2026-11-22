@@ -1,15 +1,17 @@
+import type { Priority } from "../models/Priority.js";
+import { Status } from "../models/Status.js";
 import { Task } from "../models/Task.js";
 
-export class TaskService{
+export class TaskService {
     private _taskList: Task[] = [];
 
     // Add a task to the list 
-    addTask(task: Task): void{
-        this._taskList.push(task);       
+    addTask(task: Task): void {
+        this._taskList.push(task);
     }
 
     // List all the tasks added to _taskList
-    listTasks(): Task[]{
+    listTasks(): Task[] {
         return [...this._taskList];
     }
 
@@ -20,22 +22,47 @@ export class TaskService{
     }
 
     // Finds task by id
-    findById(id: string): Task | undefined{
+    findById(id: string): Task | undefined {
         return this._taskList.find(task => task.id === id);
     }
 
     // Removes the targeted task
-    removeTask(id: string): boolean{
+    removeTask(id: string): boolean {
         const index = this._taskList.findIndex(task => task.id === id);
-        
-        if(index === -1) return false;
+
+        if (index === -1) return false;
 
         this._taskList.splice(index, 1);
         return true;
     }
 
     // Returns the array length
-    listLength(): number{
+    listLength(): number {
         return this._taskList.length;
-    }   
+    }
+
+    // Complete Task
+    completeTask(id: string): boolean {
+        const task = this.findById(id);
+        if (task === undefined) return false;
+        task.status = Status.COMPLETED;
+        return true;
+    }
+
+    // Edit task
+    editTask(id: string, newTitle?: string, newDescription?: string, newStatus?: Status, newPriority?: Priority): boolean {
+        const task = this.findById(id);
+        if (task === undefined) return false;
+
+        let changed = false;
+
+        if (newTitle !== undefined && task.title !== newTitle) { task.title = newTitle; changed = true; }
+        if (newDescription !== undefined && task.description !== newDescription) { task.description = newDescription; changed = true; }
+        if (newStatus !== undefined && task.status !== newStatus) { task.status = newStatus; changed = true; }
+        if (newPriority !== undefined && task.priority !== newPriority) { task.priority = newPriority; changed = true; }
+
+        if (changed) task.markAsEdited();
+        
+        return true;
+    }
 }
