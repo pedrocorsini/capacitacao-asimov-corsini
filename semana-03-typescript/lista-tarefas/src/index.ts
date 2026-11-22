@@ -15,8 +15,8 @@ tarefa.description = "Estudar IA"
 
 const lista = new TaskService();
 lista.addTask(tarefa);
-console.log(formatDate(tarefa.createdOn));
-// console.log(lista);
+// console.log(formatDate(tarefa.createdOn));
+console.log(lista);
 // console.log(lista.listLength());
 
 
