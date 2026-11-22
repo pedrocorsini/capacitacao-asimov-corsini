@@ -14,9 +14,9 @@ export class TaskService{
     }
 
     // Finds tasks by name 
-    findByName(name: string): Task[] {
+    findByTitle(name: string): Task[] {
         const searchName = name.toLowerCase;
-        return this._taskList.filter(task => task.name.toLowerCase() === searchName());
+        return this._taskList.filter(task => task.title.toLowerCase() === searchName());
     }
 
     // Finds task by id
@@ -33,4 +33,9 @@ export class TaskService{
         this._taskList.splice(index, 1);
         return true;
     }
+
+    // Returns the array length
+    listLength(): number{
+        return this._taskList.length;
+    }   
 }
