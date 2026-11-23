@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="../dist/index.js" type="module"></script>
+  <title>Lista de Tarefas</title>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="home-button" href="#home">Lista de Tarefas</a>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="container">
+
+      <button id="createTaskButton">Criar Tarefa</button>
+      <button id="hideTaskButton">Cancelar</button>
+
+      <div id="task">
+        <ul></ul>
+        <div id="taskFields" hidden="true">
+
+          <div id="title">
+            <label for="titleInput">Título</label>
+            <input type="text" placeholder="Digite um título..."  name="titleInput" />
+            
+          </div>
+
+          <div id="description">
+            <label for="descriptionInput">Descrição</label>
+            <input type="text" placeholder="Digite a descrição..." name="descriptionInput"/>
+          </div>
+
+          <div id="status">
+            <label for="statusInput">Status</label>
+            <select id="statusInput">
+              <option value="">Escolha um status...</option>
+              <option value="Pendente">Pendente</option>
+              <option value="Em Andamento">Em Andamento</option>
+              <option value="Concluída">Concluída</option>
+            </select>
+          </div>
+
+          <div id="priority">
+            <label for="priorityInput">Prioridade</label>
+            <select id="priorityInput">
+              <option value="">Escolha uma opção...</option>
+              <option value="Baixa">Baixa</option>
+              <option value="Média">Média</option>
+              <option value="Alta">Alta</option>
+            </select>
+          </div>
+          <br>
+          <button id="addTask">Adicionar Tarefa</button>
+
+        </div>
+      </div>
+
+    </section>
+  </main>
+</body>
+
+</html>

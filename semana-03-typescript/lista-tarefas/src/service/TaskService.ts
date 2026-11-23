@@ -15,7 +15,7 @@ export class TaskService {
         return [...this._taskList];
     }
 
-    // Finds tasks by name 
+    // Finds tasks by title 
     findByTitle(name: string): Task[] {
         const searchName = name.toLowerCase;
         return this._taskList.filter(task => task.title.toLowerCase() === searchName());
