@@ -1,7 +1,6 @@
 import type { Priority } from "../models/Priority.js";
 import { Status } from "../models/Status.js";
 import { Task } from "../models/Task.js";
-
 export class TaskService {
     private _taskList: Task[] = [];
 
@@ -45,7 +44,10 @@ export class TaskService {
     completeTask(id: string): boolean {
         const task = this.findById(id);
         if (task === undefined) return false;
-        task.status = Status.COMPLETED;
+        if (task.status !== Status.COMPLETED) {
+            task.status = Status.COMPLETED;
+            task.markAsEdited();
+        }
         return true;
     }
 
@@ -62,7 +64,7 @@ export class TaskService {
         if (newPriority !== undefined && task.priority !== newPriority) { task.priority = newPriority; changed = true; }
 
         if (changed) task.markAsEdited();
-        
+
         return true;
     }
 }

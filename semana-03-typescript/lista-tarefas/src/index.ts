@@ -3,6 +3,7 @@ import { Status } from "./models/Status.js";
 import { TaskService } from "./service/TaskService.js";
 import { formatDate, validateTitle } from "./service/Utilities.js";
 import { Priority } from "./models/Priority.js";
+import type { TaskData } from "./models/TaskData.js";
 
 const listElement = document.querySelector("#task ul") as HTMLUListElement;
 const inputTitle = document.querySelector("#title input") as HTMLInputElement;
@@ -15,6 +16,8 @@ const hideTaskButton = document.querySelector("#hideTaskButton") as HTMLElement;
 const taskFields = document.querySelector("#taskFields") as HTMLDivElement;
 
 const taskList: TaskService = new TaskService();
+carregarDados();
+renderTasks();
 
 function mostrarCampos(): void {
     taskFields.hidden = false;
@@ -50,6 +53,7 @@ function adicionarTarefa(): boolean {
         renderTasks();
         inputTitle.value = "";
         inputDescription.value = "";
+        salvarDados();
         return true;
     };
 }
@@ -57,3 +61,27 @@ function adicionarTarefa(): boolean {
 createTaskButton.addEventListener("click", mostrarCampos);
 addTaskButton.addEventListener("click", adicionarTarefa);
 hideTaskButton.addEventListener("click", esconderCampos);
+
+function salvarDados() {
+    const mapper = taskList.listTasks().map((task): TaskData =>({
+        id: task.id,
+        title: task.title,
+        status: task.status,
+        priority: task.priority,
+        createdOn: task.createdOn.toISOString(),
+        ...(task.description !== undefined ? {description: task.description} : {}),
+        ...(task.editedOn !== undefined ? {editedOn: task.editedOn?.toISOString()} : {}),
+    }));
+    localStorage.setItem("@task_list", JSON.stringify(mapper));
+}
+
+function carregarDados() {
+    const dadosSalvos = localStorage.getItem("@task_list");
+    if (dadosSalvos === null) return;
+    const dados = JSON.parse(dadosSalvos);
+    for(const item of dados){
+        console.log(item)
+        const task = Task.fromSavedData(item);
+        taskList.addTask(task); 
+    }
+}

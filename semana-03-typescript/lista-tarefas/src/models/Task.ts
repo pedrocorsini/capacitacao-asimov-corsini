@@ -2,6 +2,7 @@
 import { Status } from "./Status.js";
 import { validateTitle } from "../service/Utilities.js";
 import { Priority } from "./Priority.js";
+import type { TaskData } from "./TaskData.js";
 
 export class Task {
     private readonly _id: string;
@@ -12,17 +13,30 @@ export class Task {
     private readonly _createdOn: Date;
     private _editedOn?: Date;
 
-    constructor(title: string, description?: string, status: Status = Status.PENDING, priority: Priority = Priority.LOW) {
-        this._id = crypto.randomUUID();
-        this._title = title;
+    constructor(title: string, description?: string, status: Status = Status.PENDING, priority: Priority = Priority.LOW, dadosOriginais?: {id: string, createdOn: Date}) {
+        this._id = dadosOriginais?.id ?? crypto.randomUUID();
+        if (!validateTitle(title)) throw new Error("Título Inválido");
+        this._title = title.trim();
         if (description !== undefined) this._description = description;
         this._status = status;
         this._priority = priority;
-        this._createdOn = new Date();
+        this._createdOn = dadosOriginais?.createdOn ?? new Date();
     }
 
     markAsEdited(): void {
         this._editedOn = new Date();
+    }
+
+    static fromSavedData(dados: TaskData): Task{
+        const task = new Task(
+            dados.title,
+            dados.description,
+            dados.status,
+            dados.priority,
+            {id: dados.id, createdOn: new Date(dados.createdOn)}
+        );
+        if(dados.editedOn !== undefined) task._editedOn = new Date(dados.editedOn); 
+        return task;
     }
 
     get id(): string {
