@@ -35,7 +35,15 @@ function renderTasks(): void {
         const { date, time } = formatDate(task.createdOn);
         li.textContent = `${resumo}\nStatus: ${task.status}\nPrioridade: ${task.priority}\nCriada em: ${date} às ${time}`
         listElement.appendChild(li);
-    }
+       
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.textContent = "Remover";
+        removeButton.id = "removeTask";
+
+        removeButton.addEventListener("click", () => removerTarefa(task.id));
+        li.appendChild(removeButton);
+    }              
 }
 
 function adicionarTarefa(): boolean {
@@ -50,12 +58,19 @@ function adicionarTarefa(): boolean {
     } else {
         const task = new Task(title, description, status, priority);
         taskList.addTask(task);
+        salvarDados();
         renderTasks();
         inputTitle.value = "";
         inputDescription.value = "";
-        salvarDados();
         return true;
     };
+}
+
+function removerTarefa(taskId: string): boolean{
+    if(!taskList.removeTask(taskId)) return false;
+    salvarDados();
+    renderTasks();
+    return true;    
 }
 
 createTaskButton.addEventListener("click", mostrarCampos);
