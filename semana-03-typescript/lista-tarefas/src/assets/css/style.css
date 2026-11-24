@@ -1,3 +1,60 @@
-#task li {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    color-scheme: dark;
+    --color-bg: #161c1a;
+    --color-surface: #232e29;
+    --color-ink: #e3e2da;
+    --color-accent: #9fc7b8;
+    --color-muted: #a6b1aa;
+    --color-border: #3a4841;
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Times New Roman', Times, serif;
+
+    --page-gutter: clamp(1rem, 3vw, 2rem);
+    --section-space: clamp(1.5rem, 6vw, 5rem);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    margin: 0;
+}
+
+.task-form {
     white-space: pre-line;
+}
+
+#pendingTasks {
+    white-space: pre-line;
+    background-color: var(--color-muted);
+    color: var(--color-bg);
+    list-style: none;
+    padding: 0;
+}
+
+#inProgressTasks {
+    white-space: pre-line;
+    background-color: var(--color-ink);
+    color: var(--color-bg);
+    list-style: none;
+    padding: 0;
+}
+
+#completedTasks {
+    white-space: pre-line;
+    background-color: var(--color-border);
+    color: var(--color-ink);
+    list-style: none;
+    padding: 0;
+}
+
+textarea {
+    resize: none;
 }
