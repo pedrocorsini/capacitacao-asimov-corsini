@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
     color-scheme: dark;
@@ -27,34 +27,141 @@ body {
     margin: 0;
 }
 
-.task-form {
-    white-space: pre-line;
+:is(body > header, main.container) {
+    box-sizing: border-box;
+    max-width: 1400px;
+    margin-inline: auto;
+    padding-inline: var(--page-gutter);
 }
 
-#pendingTasks {
-    white-space: pre-line;
-    background-color: var(--color-muted);
-    color: var(--color-bg);
+#taskList {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    column-gap: clamp(1.5rem, 4vw, 4rem);
+    row-gap: 10px;
+    padding-block: clamp(1.5rem, 5vw, 4rem);
+}
+
+#taskListHeading {
+    grid-column: 1/-1;
+}
+
+.task-list {
+    display: grid;
+    gap: 0.75rem;
     list-style: none;
+    margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease;
 }
 
-#inProgressTasks {
+.task-list li {
+    padding: 0.875rem 1rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    /* border-radius: 0.5rem; */
     white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.task-list li:hover {
+    background-color: var(--color-bg);
+}
+
+.task-form:not([hidden]) {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.2fr) minmax(0, 1.8fr) repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 1rem;
+    margin-block-start: 1rem;
+    padding: 1.25rem;
     background-color: var(--color-ink);
     color: var(--color-bg);
-    list-style: none;
-    padding: 0;
+    border: 1px solid var(--color-border);
 }
 
-#completedTasks {
-    white-space: pre-line;
-    background-color: var(--color-border);
-    color: var(--color-ink);
-    list-style: none;
-    padding: 0;
+.task-form-field {
+    display: grid;
+    gap: 0.5rem;
 }
 
-textarea {
+.task-form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.task-form label {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.task-form :is(input, textarea, select) {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 2.75rem;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-muted);
+    color: var(--color-bg);
+    font: inherit;
+}
+
+.task-form textarea {
     resize: none;
+}
+
+.task-form button {
+    min-height: 2.75rem;
+    padding-inline: 1rem;
+    border: 1px solid var(--color-border);
+    background-color: transparent;
+    color: var(--color-bg);
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#newTaskButton {
+    min-height: 2.75rem;
+    padding-inline: 1rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-ink);
+    color: var(--color-bg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#newTaskButton:hover {
+    background-color: var(--color-muted);
+}
+
+.task-form button:hover {
+    background-color: var(--color-muted);
+}
+
+.task-form button[type="submit"]:hover {
+    background-color: var(--color-surface);
+}
+
+.task-form button[type="submit"] {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-weight: 600;
+}
+
+.task-form :is(input, textarea, select, button):focus-visible {
+    outline: 2px solid var(--color-bg);
+    outline-offset: 2px;
+}
+
+@media (max-width: 48rem) {
+    .task-form:not([hidden]) {
+        grid-template-columns: 1fr;
+    }
 }

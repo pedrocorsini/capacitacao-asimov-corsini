@@ -17,106 +17,61 @@
 
   <main class="container">
     <form id="taskForm" class="task-form" hidden>
-      <label for="titleInput">Título</label>
-      <input id="titleInput" name="title" type="text" required maxlength="100" placeholder="Digite o título">
+      <div class="task-form-field">
+        <label for="titleInput">Título</label>
+        <input id="titleInput" name="title" type="text" required maxlength="100" placeholder="Digite o título">
+      </div>
 
-      <label for="descriptionInput">Descrição</label>
-      <textarea name="descriptionInput" id="descriptionInput" rows="6" cols="50" maxlength="312"
-        placeholder="Digite a descrição..." wrap="soft"></textarea>
+      <div class="task-form-field">
+        <label for="descriptionInput">Descrição</label>
+        <textarea name="descriptionInput" id="descriptionInput" rows="2" cols="50" maxlength="312"
+          placeholder="Digite a descrição..." wrap="soft"></textarea>
+      </div>
 
-      <div id="status">
+      <div id="status" class="task-form-field">
         <label for="statusInput">Status</label>
         <select id="statusInput">
-          <option value="">Escolha um status...</option>
-          <option value="Pendente">Pendente</option>
+          <option value="Pendente" selected>Pendente</option>
           <option value="Em Andamento">Em Andamento</option>
           <option value="Concluída">Concluída</option>
         </select>
       </div>
 
-      <div id="priority">
+      <div id="priority" class="task-form-field">
         <label for="priorityInput">Prioridade</label>
         <select id="priorityInput">
-          <option value="">Escolha uma opção...</option>
-          <option value="Baixa">Baixa</option>
+          <option value="Baixa" selected>Baixa</option>
           <option value="Média">Média</option>
           <option value="Alta">Alta</option>
         </select>
       </div>
 
-      <button type="submit">Salvar tarefa</button>
-      <button type="button" id="cancelButton">Cancelar</button>
+      <div class="task-form-actions">
+        <button type="submit">Salvar tarefa</button>
+        <button type="button" id="cancelButton">Cancelar</button>
+      </div>
     </form>
 
     <section id="taskList" aria-labelledby="taskListHeading">
       <h2 id="taskListHeading">Tarefas</h2>
 
-      <section id="pendingList" aria-labelledby="taskListPending">
+      <section aria-labelledby="taskListPending">
         <h3 id="taskListPending">Pendentes</h3>
-        <ul id="pendingTasks"></ul>
+        <ul id="pendingTasks" class="task-list"></ul>
       </section>
 
       <section aria-labelledby="taskListInProgress">
         <h3 id="taskListInProgress">Em Andamento</h3>
-        <ul id="inProgressTasks"></ul>
+        <ul id="inProgressTasks" class="task-list"></ul>
       </section>
 
       <section aria-labelledby="taskListCompleted">
         <h3 id="taskListCompleted">Completadas</h3>
-        <ul id="completedTasks"></ul>
+        <ul id="completedTasks" class="task-list"></ul>
       </section>
     </section>
 
   </main>
-
-
-  <!-- <main>
-    <section id="home" class="container">
-
-      <button id="createTaskButton">Criar Tarefa</button>
-      <button id="hideTaskButton">Cancelar</button>
-
-      <form id="task">
-        <ul></ul>
-        <div id="taskFields" hidden="true">
-
-          <div id="title">
-            <label for="titleInput">Título</label>
-            <input type="text" placeholder="Digite um título..." name="titleInput" />
-          </div>
-
-          <div id="description">
-            <label for="descriptionInput">Descrição</label>
-            <input type="text" placeholder="Digite a descrição..." name="descriptionInput" />
-          </div>
-
-          <div id="status">
-            <label for="statusInput">Status</label>
-            <select id="statusInput">
-              <option value="">Escolha um status...</option>
-              <option value="Pendente">Pendente</option>
-              <option value="Em Andamento">Em Andamento</option>
-              <option value="Concluída">Concluída</option>
-            </select>
-          </div>
-
-          <div id="priority">
-            <label for="priorityInput">Prioridade</label>
-            <select id="priorityInput">
-              <option value="">Escolha uma opção...</option>
-              <option value="Baixa">Baixa</option>
-              <option value="Média">Média</option>
-              <option value="Alta">Alta</option>
-            </select>
-          </div>
-          <br>
-          <button id="addTask">Adicionar Tarefa</button>
-        </div>
-
-      </form>
-
-    </section>
-  </main> -->
 </body>
 
 </html>

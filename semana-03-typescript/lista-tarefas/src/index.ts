@@ -12,7 +12,7 @@ const selectPriority = document.querySelector("#priority select") as HTMLSelectE
 
 const newTaskButton = document.querySelector("#newTaskButton") as HTMLElement;
 const cancelButton = document.querySelector("#cancelButton") as HTMLElement;
-const taskForm = document.querySelector("#taskForm") as HTMLDivElement;
+const taskForm = document.querySelector("#taskForm") as HTMLFormElement;
 
 const pendingList = document.querySelector("#pendingTasks") as HTMLUListElement;
 const inProgressList = document.querySelector("#inProgressTasks") as HTMLUListElement;
@@ -64,8 +64,8 @@ function renderTasks(): void {
         editButton.id = "editTask";
         editButton.addEventListener("click", () => editarTarefa(task.id));
 
-        li.appendChild(removeButton);
         li.appendChild(editButton);
+        li.appendChild(removeButton);
     }
 }
 
@@ -137,8 +137,7 @@ function carregarDados() {
 
 function limparFormulario(): void {
     editingTaskId = null;
-    inputTitle.value = "";
-    inputDescription.value = "";
+    taskForm.reset();
 }
 
 taskForm.addEventListener("submit", (event) => {
