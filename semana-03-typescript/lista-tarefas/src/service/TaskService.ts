@@ -67,4 +67,9 @@ export class TaskService {
 
         return true;
     }
+
+    // Filter by priority
+    filterByPriority(priority: Priority): Task[]{
+        return this._taskList.filter(task => task.priority === priority);
+    }
 }

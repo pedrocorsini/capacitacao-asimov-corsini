@@ -59,8 +59,32 @@ body {
     padding-block: clamp(1.5rem, 5vw, 4rem);
 }
 
-#taskListHeading {
-    grid-column: 1/-1;
+.filter-priority {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+}
+
+.filter-priority select {
+    box-sizing: border-box;
+    width: 9rem;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 2.75rem;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font: inherit;
+    cursor: pointer;
+}
+
+.filter-priority select:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
 }
 
 .task-list {
@@ -279,6 +303,16 @@ body {
 }
 
 @media (max-width: 48rem) {
+
+    .filter-priority {
+        display: grid;
+        justify-content: stretch;
+    }
+
+    .filter-priority select {
+        width: 100%;
+    }
+
     .create-task,
     #taskList,
     .task-form:not([hidden]) {

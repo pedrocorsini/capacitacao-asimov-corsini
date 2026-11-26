@@ -57,7 +57,16 @@
     </form>
 
     <section id="taskList" aria-labelledby="taskListHeading">
-      <h2 id="taskListHeading">Tarefas</h2>
+      
+      <div class="filter-priority">
+        <label for="filterByPriority">Ordenar por Prioridade</label>
+        <select id="filterByPriority">
+          <option value="" selected>Nenhuma</option>
+          <option value="Baixa">Baixa</option>
+          <option value="Média">Média</option>
+          <option value="Alta">Alta</option>
+        </select>
+      </div>
 
       <section aria-labelledby="taskListPending">
         <h3 id="taskListPending">Pendentes</h3>

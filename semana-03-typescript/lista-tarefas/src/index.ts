@@ -9,6 +9,7 @@ const inputTitle = document.querySelector("#titleInput") as HTMLInputElement;
 const inputDescription = document.querySelector("#descriptionInput") as HTMLInputElement;
 const selectStatus = document.querySelector("#status select") as HTMLSelectElement;
 const selectPriority = document.querySelector("#priority select") as HTMLSelectElement;
+const filterPriority = document.querySelector("#filterByPriority") as HTMLSelectElement;
 
 const newTaskButton = document.querySelector("#newTaskButton") as HTMLElement;
 const cancelButton = document.querySelector("#cancelButton") as HTMLElement;
@@ -47,7 +48,7 @@ function renderTasks(): void {
     inProgressList.replaceChildren();
     completedList.replaceChildren();
 
-    for (const task of taskList.listTasks()) {
+    for (const task of filtrarPorPrioridade()) {
         const li = document.createElement("li");
         const title = document.createElement("h4");
         title.textContent = task.title;
@@ -139,6 +140,12 @@ function editarTarefa(taskId: string): void {
     inputTitle.focus();
 }
 
+function filtrarPorPrioridade(): Task[]{
+    const priority = Object.values(Priority).find(value => value === filterPriority.value);
+    const tasks = priority === undefined ? taskList.listTasks() : taskList.filterByPriority(priority);
+    return tasks;
+}
+
 function salvarDados() {
     const mapper = taskList.listTasks().map((task): TaskData => ({
         id: task.id,
@@ -216,3 +223,5 @@ cancelButton.addEventListener("click", () => {
     limparFormulario();
     esconderCampos();
 });
+
+filterPriority.addEventListener("change", renderTasks);
