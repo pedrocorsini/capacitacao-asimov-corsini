@@ -32,6 +32,16 @@ function esconderCampos(): void {
     taskForm.hidden = true;
 }
 
+function taskTimestamp(label: string, value: Date): HTMLParagraphElement {
+    const line = document.createElement("p");
+    const timestamp = document.createElement("time");
+    const { date, time } = formatDate(value);
+    timestamp.dateTime = value.toISOString();
+    timestamp.textContent = `${date} às ${time}`;
+    line.append(label + " ", timestamp);
+    return line;
+}
+
 function renderTasks(): void {
     pendingList.replaceChildren();
     inProgressList.replaceChildren();
@@ -39,14 +49,31 @@ function renderTasks(): void {
 
     for (const task of taskList.listTasks()) {
         const li = document.createElement("li");
-        const resumo = task.description ? `Título: ${task.title}\nDescrição: ${task.description}` : `Título: ${task.title}`;
-        const { date, time } = formatDate(task.createdOn);
+        const title = document.createElement("h4");
+        title.textContent = task.title;
+        const priority = document.createElement("span");
+        priority.className = "task-priority";
+        priority.dataset.priority = task.priority;
+        priority.textContent = `Prioridade ${task.priority.toLocaleLowerCase("pt-BR")}`;
+        const header = document.createElement("div");
+        header.className = "task-header";
+        header.append(title, priority);
+        li.append(header);
 
-        li.textContent = `${resumo}\nPrioridade: ${task.priority}\nCriada em: ${date} às ${time}`;
-        if (task.editedOn) {
-            const { date, time } = formatDate(task.editedOn);
-            li.textContent += `\nEditada em: ${date} às ${time}`
+        if (task.description?.trim()) {
+            const description = document.createElement("p");
+            description.className = "task-description";
+            description.textContent = task.description;
+            li.append(description);
         }
+
+        const dates = document.createElement("div");
+        dates.className = "task-dates";
+        dates.append(taskTimestamp("Criada em", task.createdOn));
+        if (task.editedOn) {
+            dates.append(taskTimestamp("Editada em", task.editedOn));
+        }
+        li.append(dates);
 
         if(task.status == "Pendente") pendingList.appendChild(li);
         if(task.status == "Em Andamento") inProgressList.appendChild(li);
@@ -55,17 +82,18 @@ function renderTasks(): void {
         const removeButton = document.createElement("button");
         removeButton.type = "button";
         removeButton.textContent = "Remover";
-        removeButton.id = "removeTask";
+        removeButton.className = "remove-task";
         removeButton.addEventListener("click", () => removerTarefa(task.id));
 
         const editButton = document.createElement("button");
         editButton.type = "button";
         editButton.textContent = "Editar";
-        editButton.id = "editTask";
         editButton.addEventListener("click", () => editarTarefa(task.id));
 
-        li.appendChild(editButton);
-        li.appendChild(removeButton);
+        const actions = document.createElement("div");
+        actions.className = "task-actions";
+        actions.append(editButton, removeButton);
+        li.appendChild(actions);
     }
 }
 
@@ -129,7 +157,6 @@ function carregarDados() {
     if (dadosSalvos === null) return;
     const dados = JSON.parse(dadosSalvos);
     for (const item of dados) {
-        console.log(item)
         const task = Task.fromSavedData(item);
         taskList.addTask(task);
     }
@@ -173,10 +200,18 @@ taskForm.addEventListener("submit", (event) => {
     esconderCampos();
 });
 
+let aberto = false;
 newTaskButton.addEventListener("click", () => {
-    limparFormulario();
-    mostrarCampos();
+    if(!aberto){
+        limparFormulario();
+        mostrarCampos();
+        aberto = true;
+    }else{
+        esconderCampos();
+        aberto = false;
+    }
 });
+
 cancelButton.addEventListener("click", () => {
     limparFormulario();
     esconderCampos();

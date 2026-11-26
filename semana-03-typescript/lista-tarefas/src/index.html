@@ -12,10 +12,14 @@
 <body>
   <header>
     <h1>Lista de Tarefas</h1>
-    <button id="newTaskButton">Nova Tarefa</button>
   </header>
 
   <main class="container">
+    <section id="home" class="create-task">
+      <h1 id="createNewTaskText">Criar<br>Nova Tarefa</h1>
+      <button id="newTaskButton">Nova Tarefa</button>
+    </section>
+
     <form id="taskForm" class="task-form" hidden>
       <div class="task-form-field">
         <label for="titleInput">Título</label>
@@ -66,7 +70,7 @@
       </section>
 
       <section aria-labelledby="taskListCompleted">
-        <h3 id="taskListCompleted">Completadas</h3>
+        <h3 id="taskListCompleted">Concluídas</h3>
         <ul id="completedTasks" class="task-list"></ul>
       </section>
     </section>
