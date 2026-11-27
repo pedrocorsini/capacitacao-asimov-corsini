@@ -175,10 +175,19 @@ body {
     font: inherit;
     font-weight: 600;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .task-actions .remove-task {
     --action-color: #efada5;
+}
+
+.task-actions .edit-task{
+    --action-color: #38BDF8;
+}
+
+.task-actions .complete-task{
+    --action-color: var(--color-accent);
 }
 
 .task-actions button:hover {

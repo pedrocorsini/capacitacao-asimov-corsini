@@ -76,9 +76,9 @@ function renderTasks(): void {
         }
         li.append(dates);
 
-        if(task.status == "Pendente") pendingList.appendChild(li);
-        if(task.status == "Em Andamento") inProgressList.appendChild(li);
-        if(task.status == "Concluída") completedList.appendChild(li);
+        if (task.status == "Pendente") pendingList.appendChild(li);
+        if (task.status == "Em Andamento") inProgressList.appendChild(li);
+        if (task.status == "Concluída") completedList.appendChild(li);
 
         const removeButton = document.createElement("button");
         removeButton.type = "button";
@@ -89,10 +89,21 @@ function renderTasks(): void {
         const editButton = document.createElement("button");
         editButton.type = "button";
         editButton.textContent = "Editar";
+        editButton.className = "edit-task";
         editButton.addEventListener("click", () => editarTarefa(task.id));
+
+        const completeButton = document.createElement("button");
+        completeButton.type = "button";
+        completeButton.textContent = "Concluir";
+        completeButton.className = "complete-task"
+        completeButton.addEventListener("click", () => concluirTarefa(task.id));
 
         const actions = document.createElement("div");
         actions.className = "task-actions";
+        if (task.status !== Status.COMPLETED) {
+            actions.append(completeButton)
+            li.appendChild(actions);
+        }
         actions.append(editButton, removeButton);
         li.appendChild(actions);
     }
@@ -140,7 +151,14 @@ function editarTarefa(taskId: string): void {
     inputTitle.focus();
 }
 
-function filtrarPorPrioridade(): Task[]{
+function concluirTarefa(taskID: string): boolean {
+    if (!taskList.completeTask(taskID)) return false;
+    salvarDados();
+    renderTasks();
+    return true;
+}
+
+function filtrarPorPrioridade(): Task[] {
     const priority = Object.values(Priority).find(value => value === filterPriority.value);
     const tasks = priority === undefined ? taskList.listTasks() : taskList.filterByPriority(priority);
     return tasks;
@@ -209,11 +227,11 @@ taskForm.addEventListener("submit", (event) => {
 
 let aberto = false;
 newTaskButton.addEventListener("click", () => {
-    if(!aberto){
+    if (!aberto) {
         limparFormulario();
         mostrarCampos();
         aberto = true;
-    }else{
+    } else {
         esconderCampos();
         aberto = false;
     }
