@@ -1,90 +1,100 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="../dist/index.js" type="module"></script>
+    <title>Lista de Tarefas</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="../dist/index.js" type="module"></script>
-  <title>Lista de Tarefas</title>
-</head>
+  <body>
+    <header>
+      <h1>Lista de Tarefas</h1>
+    </header>
 
-<body>
-  <header>
-    <h1>Lista de Tarefas</h1>
-  </header>
-
-  <main class="container">
-    <section id="home" class="create-task">
-      <h1 id="createNewTaskText">Criar<br>Nova Tarefa</h1>
-      <button id="newTaskButton">Nova Tarefa</button>
-    </section>
-
-    <form id="taskForm" class="task-form" hidden>
-      <div class="task-form-field">
-        <label for="titleInput">Título</label>
-        <input id="titleInput" name="title" type="text" required maxlength="100" placeholder="Digite o título">
-      </div>
-
-      <div class="task-form-field">
-        <label for="descriptionInput">Descrição</label>
-        <textarea name="descriptionInput" id="descriptionInput" rows="2" cols="50" maxlength="312"
-          placeholder="Digite a descrição..." wrap="soft"></textarea>
-      </div>
-
-      <div id="status" class="task-form-field">
-        <label for="statusInput">Status</label>
-        <select id="statusInput">
-          <option value="Pendente" selected>Pendente</option>
-          <option value="Em Andamento">Em Andamento</option>
-          <option value="Concluída">Concluída</option>
-        </select>
-      </div>
-
-      <div id="priority" class="task-form-field">
-        <label for="priorityInput">Prioridade</label>
-        <select id="priorityInput">
-          <option value="Baixa" selected>Baixa</option>
-          <option value="Média">Média</option>
-          <option value="Alta">Alta</option>
-        </select>
-      </div>
-
-      <div class="task-form-actions">
-        <button type="submit">Salvar tarefa</button>
-        <button type="button" id="cancelButton">Cancelar</button>
-      </div>
-    </form>
-
-    <section id="taskList" aria-labelledby="taskListHeading">
-      
-      <div class="filter-priority">
-        <label for="filterByPriority">Ordenar por Prioridade</label>
-        <select id="filterByPriority">
-          <option value="" selected>Nenhuma</option>
-          <option value="Baixa">Baixa</option>
-          <option value="Média">Média</option>
-          <option value="Alta">Alta</option>
-        </select>
-      </div>
-
-      <section aria-labelledby="taskListPending">
-        <h3 id="taskListPending">Pendentes</h3>
-        <ul id="pendingTasks" class="task-list"></ul>
+    <main class="container">
+      <section id="home" class="create-task">
+        <h1 id="createNewTaskText">Criar<br />Nova Tarefa</h1>
+        <button id="newTaskButton">Nova Tarefa</button>
       </section>
 
-      <section aria-labelledby="taskListInProgress">
-        <h3 id="taskListInProgress">Em Andamento</h3>
-        <ul id="inProgressTasks" class="task-list"></ul>
+      <form id="taskForm" class="task-form" hidden>
+        <div class="task-form-field">
+          <label for="titleInput">Título</label>
+          <input
+            id="titleInput"
+            name="title"
+            type="text"
+            required
+            maxlength="100"
+            placeholder="Digite o título"
+          />
+        </div>
+
+        <div class="task-form-field">
+          <label for="descriptionInput">Descrição</label>
+          <textarea
+            name="descriptionInput"
+            id="descriptionInput"
+            rows="2"
+            cols="50"
+            maxlength="312"
+            placeholder="Digite a descrição..."
+            wrap="soft"
+          ></textarea>
+        </div>
+
+        <div id="status" class="task-form-field">
+          <label for="statusInput">Status</label>
+          <select id="statusInput">
+            <option value="Pendente" selected>Pendente</option>
+            <option value="Em Andamento">Em Andamento</option>
+            <option value="Concluída">Concluída</option>
+          </select>
+        </div>
+
+        <div id="priority" class="task-form-field">
+          <label for="priorityInput">Prioridade</label>
+          <select id="priorityInput">
+            <option value="Baixa" selected>Baixa</option>
+            <option value="Média">Média</option>
+            <option value="Alta">Alta</option>
+          </select>
+        </div>
+
+        <div class="task-form-actions">
+          <button type="submit">Salvar tarefa</button>
+          <button type="button" id="cancelButton">Cancelar</button>
+        </div>
+      </form>
+
+      <section id="taskList" aria-labelledby="taskListHeading">
+        <div class="filter-priority">
+          <label for="filterByPriority">Ordenar por Prioridade</label>
+          <select id="filterByPriority">
+            <option value="" selected>Nenhuma</option>
+            <option value="Baixa">Baixa</option>
+            <option value="Média">Média</option>
+            <option value="Alta">Alta</option>
+          </select>
+        </div>
+
+        <section aria-labelledby="taskListPending">
+          <h3 id="taskListPending">Pendentes</h3>
+          <ul id="pendingTasks" class="task-list"></ul>
+        </section>
+
+        <section aria-labelledby="taskListInProgress">
+          <h3 id="taskListInProgress">Em Andamento</h3>
+          <ul id="inProgressTasks" class="task-list"></ul>
+        </section>
+
+        <section aria-labelledby="taskListCompleted">
+          <h3 id="taskListCompleted">Concluídas</h3>
+          <ul id="completedTasks" class="task-list"></ul>
+        </section>
       </section>
-
-      <section aria-labelledby="taskListCompleted">
-        <h3 id="taskListCompleted">Concluídas</h3>
-        <ul id="completedTasks" class="task-list"></ul>
-      </section>
-    </section>
-
-  </main>
-</body>
-
+    </main>
+  </body>
 </html>

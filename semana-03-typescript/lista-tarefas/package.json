@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run src/tests",
+    "lint": "oxlint src"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,8 @@
   "type": "module",
   "devDependencies": {
     "@types/node": "^26.6.6",
+    "oxlint": "^1.95.0",
+    "prettier": "3.10.1",
     "typescript": "^7.0.2",
     "vitest": "^5.1.2"
   }
