@@ -58,7 +58,7 @@ jobs:
           path: .
 
   deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/semana-03-typescript')
     needs: build
     runs-on: ubuntu-latest
     environment:
