@@ -6,9 +6,9 @@ name: CI - Lista de Tarefas
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "main", "semana-03-typescript" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "semana-03-typescript" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -19,7 +19,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -41,12 +41,16 @@ jobs:
           
       - name: Instalar dependências
         run: npm ci
+
+      - name: Lint
+        run: npm run lint
         
       - name: Compilar TypeScript
         run: npx tsc
         
       - name: Remover node_modules
         run: rm -rf node_modules
+        
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
@@ -54,6 +58,7 @@ jobs:
           path: .
 
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
@@ -62,6 +67,3 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-
-        
-      
